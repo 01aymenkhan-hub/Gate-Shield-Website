@@ -1,0 +1,195 @@
+/* ============================================================
+   Fold 8: Industries We Serve Section
+   ============================================================ */
+
+.industries-section {
+  padding-top: 70px;
+  padding-bottom: 110px;
+  background-color: #f5f1ea;
+  border-top: 1px solid #e4ded3;
+  position: relative;
+  overflow: hidden;
+}
+
+.industries-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Section Header ─────────────────────────────────────────── */
+
+.industries-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 56px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.industries-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 3.8vw, 46px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #111513;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.industries-subheadline {
+  font-size: clamp(15px, 1.4vw, 17px);
+  line-height: 1.6;
+  color: #6d6961;
+}
+
+/* ── 8-Card Grid (4 Columns Desktop) ────────────────────────── */
+
+.industries-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.industry-card {
+  background: #ffffff;
+  border: 1.5px solid #e4ded3;
+  border-radius: 4px;
+  padding: 28px 24px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  position: relative;
+}
+
+.industry-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--brand-primary);
+  box-shadow: 0 12px 30px rgba(58, 87, 161, 0.08);
+}
+
+/* Top: Icon + Tag */
+.industry-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 12px;
+}
+
+.industry-icon-box {
+  width: 46px;
+  height: 46px;
+  border-radius: 4px;
+  background: rgba(58, 87, 161, 0.08);
+  color: var(--brand-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+.industry-card:hover .industry-icon-box {
+  background: var(--brand-primary);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.industry-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #8a857c;
+  background: #fbf9f5;
+  border: 1px solid #ece6db;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+/* Body: Title + Desc */
+.industry-card-body {
+  margin-bottom: 0;
+  flex: 1;
+}
+
+.industry-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: #111513;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+  transition: color var(--transition-fast);
+}
+
+.industry-card:hover .industry-title {
+  color: var(--brand-primary);
+}
+
+.industry-desc {
+  font-size: 13.5px;
+  color: #6d6961;
+  line-height: 1.55;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+
+@media (max-width: 1200px) {
+  .industries-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .industries-section {
+    padding-top: 56px;
+    padding-bottom: 80px;
+  }
+
+  .industries-header {
+    margin-bottom: 40px;
+  }
+
+  .industries-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 580px) {
+  .industries-section {
+    padding-top: 48px;
+    padding-bottom: 60px;
+  }
+
+  .industries-header {
+    margin-bottom: 32px;
+  }
+
+  .industries-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .industry-card {
+    padding: 20px 18px;
+    border-radius: 4px;
+  }
+
+  .industry-icon-box {
+    width: 42px;
+    height: 42px;
+  }
+
+  .industry-title {
+    font-size: 16.5px;
+  }
+}
+

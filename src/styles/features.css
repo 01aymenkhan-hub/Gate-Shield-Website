@@ -1,0 +1,477 @@
+/* ============================================================
+   Fold 5: Role-Based Features Section
+   ============================================================ */
+
+.features-section {
+  padding-top: 60px;
+  padding-bottom: 110px;
+  border-top: 1px solid #e4ded3;
+  background: #f5f1ea;
+  position: relative;
+  overflow: hidden;
+}
+
+.features-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Section Header ─────────────────────────────────────────── */
+
+.features-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 48px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.features-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 3.8vw, 46px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #111513;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.features-subheadline {
+  font-size: clamp(15px, 1.4vw, 17px);
+  line-height: 1.65;
+  color: #6d6961;
+  max-width: 600px;
+}
+
+/* ── Persona Tab Switcher ───────────────────────────────────── */
+
+.features-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 52px;
+}
+
+.features-tab-btn {
+  padding: 10px 24px;
+  border-radius: var(--radius-full);
+  background: #ffffff;
+  border: 1.5px solid #e4ded3;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  color: #6d6961;
+  cursor: pointer;
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.features-tab-btn:hover {
+  border-color: #c4bcb0;
+  color: #111513;
+  transform: translateY(-1px);
+}
+
+.features-tab-btn.active {
+  background: var(--tab-accent, var(--brand-primary));
+  border-color: var(--tab-accent, var(--brand-primary));
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(58, 87, 161, 0.28);
+  transform: translateY(-2px);
+}
+
+/* ── 2-Column Content Grid ──────────────────────────────────── */
+
+.features-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  gap: 40px;
+  align-items: start;
+  animation: fadeSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Left Column ────────────────────────────────────────────── */
+
+.features-left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Role Intro */
+.features-role-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.features-role-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  width: fit-content;
+}
+
+.features-tagline {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 700;
+  color: #111513;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+}
+
+/* Feature Card List */
+.features-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.feature-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 20px;
+  background: #ffffff;
+  border: 1px solid #e4ded3;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    border-color var(--transition-fast);
+  animation: fadeSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.feature-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  border-color: #c4bcb0;
+}
+
+.feature-card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+  transition: background var(--transition-fast);
+}
+
+.feature-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.feature-card-title {
+  font-family: var(--font-display);
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #111513;
+}
+
+.feature-card-desc {
+  font-size: 12.5px;
+  color: #6d6961;
+  line-height: 1.5;
+}
+
+.feature-card-check {
+  flex-shrink: 0;
+  margin-top: 2px;
+  opacity: 0.7;
+}
+
+/* Bottom Stat + CTA Row */
+.features-bottom-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-top: 8px;
+}
+
+.features-stat-pill {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 10px 20px;
+  background: #ffffff;
+  border: 1px solid #e4ded3;
+  border-radius: var(--radius-full);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.features-stat-val {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.features-stat-label {
+  font-size: 12px;
+  color: #6d6961;
+  font-weight: 500;
+}
+
+.features-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: #111513;
+  color: #ffffff;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+  white-space: nowrap;
+}
+
+.features-cta-link:hover {
+  background: var(--brand-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(58, 87, 161, 0.3);
+}
+
+/* ── Right Column: Image Showcase ───────────────────────────── */
+
+.features-right-col {
+  position: sticky;
+  top: 100px;
+}
+
+.features-image-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #e4ded3;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.1),
+    0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.features-persona-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.features-image-card:hover .features-persona-img {
+  transform: scale(1.03);
+}
+
+/* Floating stat chip — top-right of image */
+.features-img-overlay-chip {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-full);
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  z-index: 5;
+}
+
+.features-overlay-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.features-overlay-val {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.features-overlay-label {
+  font-size: 10.5px;
+  color: #6d6961;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+/* Role badge — bottom-left of image */
+.features-img-role-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-full);
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #111513;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  z-index: 5;
+}
+
+.features-img-role-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+
+@media (max-width: 1100px) {
+  .features-content-grid {
+    grid-template-columns: 1fr 400px;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 900px) {
+  .features-section {
+    padding-top: 56px;
+    padding-bottom: 80px;
+  }
+
+  .features-content-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .features-right-col {
+    position: static;
+    order: -1;
+  }
+
+  .features-image-card {
+    aspect-ratio: 16 / 9;
+  }
+
+  .features-persona-img {
+    object-position: center 20%;
+  }
+}
+
+@media (max-width: 600px) {
+  .features-section {
+    padding-top: 48px;
+    padding-bottom: 64px;
+  }
+
+  .features-header {
+    margin-bottom: 28px;
+  }
+
+  .features-tabs {
+    gap: 6px;
+    margin-bottom: 32px;
+  }
+
+  .features-tab-btn {
+    padding: 8px 14px;
+    font-size: 12.5px;
+  }
+
+  .features-image-card {
+    aspect-ratio: 4 / 3;
+    border-radius: 4px;
+  }
+
+  .features-img-overlay-chip {
+    top: 12px;
+    right: 12px;
+    padding: 6px 12px;
+    gap: 8px;
+  }
+
+  .features-overlay-val {
+    font-size: 14px;
+  }
+
+  .features-overlay-label {
+    font-size: 10px;
+  }
+
+  .features-img-role-badge {
+    bottom: 12px;
+    left: 12px;
+    padding: 6px 12px;
+    font-size: 11.5px;
+  }
+
+  .feature-card {
+    padding: 14px 14px;
+    gap: 12px;
+  }
+
+  .features-bottom-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .features-stat-pill {
+    justify-content: center;
+  }
+
+  .features-cta-link {
+    justify-content: center;
+    width: 100%;
+  }
+}
+

@@ -1,0 +1,1071 @@
+/* ============================================================
+   Fold 6: How to Use — ID Scan to Entry Pass (Workflow)
+   ============================================================ */
+
+.workflow-section {
+  padding-top: 60px;
+  padding-bottom: 110px;
+  border-top: 1px solid #e4ded3;
+  background: #f5f1ea;
+  position: relative;
+  overflow: hidden;
+}
+
+.workflow-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── 3-Column Grid ──────────────────────────────────────────── */
+
+.workflow-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px 260px;
+  gap: 48px;
+  align-items: start;
+}
+
+/* ============================================================
+   LEFT COLUMN
+   ============================================================ */
+
+.workflow-left {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Heading */
+.workflow-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(34px, 4.5vw, 58px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #111513;
+  line-height: 1.08;
+  margin-bottom: 48px;
+}
+
+.workflow-h2-accent {
+  color: var(--brand-primary);
+  font-style: italic;
+}
+
+/* Active Step Detail Block */
+.workflow-step-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: wf-slide-up 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes wf-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.workflow-step-numrow {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.workflow-step-num {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 800;
+  color: #111513;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.workflow-step-divider {
+  font-size: 22px;
+  color: #c4bcb0;
+  font-weight: 300;
+  margin: 0 2px;
+}
+
+.workflow-step-total {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: #c4bcb0;
+}
+
+.workflow-step-icon-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.workflow-step-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  background: var(--brand-primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 6px 18px rgba(58, 87, 161, 0.3);
+}
+
+.workflow-step-title {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 700;
+  color: #111513;
+  letter-spacing: -0.02em;
+}
+
+.workflow-step-desc {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #6d6961;
+  max-width: 460px;
+}
+
+/* Progress bar */
+.workflow-progress-track {
+  height: 4px;
+  background: #e4ded3;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-top: 8px;
+  max-width: 360px;
+}
+
+.workflow-progress-fill {
+  height: 100%;
+  background: var(--brand-primary);
+  border-radius: var(--radius-full);
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ============================================================
+   CENTER COLUMN: Phone Mockup
+   ============================================================ */
+
+.workflow-center {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.workflow-phone-shell {
+  width: 100%;
+  max-width: 290px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.workflow-phone-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 20px 48px rgba(0, 0, 0, 0.16));
+  animation: wf-img-fade 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes wf-img-fade {
+  from {
+    opacity: 0.35;
+    transform: scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Notch */
+.wf-phone-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 28px;
+  background: #1a1a1a;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  z-index: 10;
+}
+
+/* Status bar */
+.wf-status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 36px 16px 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #111513;
+}
+
+.wf-status-icons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #55524c;
+}
+
+.wf-battery {
+  display: inline-block;
+  width: 18px;
+  height: 10px;
+  border: 1.5px solid #55524c;
+  border-radius: 3px;
+  position: relative;
+}
+
+.wf-battery::after {
+  content: '';
+  position: absolute;
+  right: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 5px;
+  background: #55524c;
+  border-radius: 1px;
+}
+
+.wf-battery::before {
+  content: '';
+  position: absolute;
+  top: 1.5px;
+  left: 1.5px;
+  right: 1.5px;
+  bottom: 1.5px;
+  background: #55524c;
+  border-radius: 1px;
+}
+
+/* App header */
+.wf-app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 16px 10px;
+  border-bottom: 1px solid #f1ece2;
+}
+
+.wf-app-logo {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 800;
+  color: #111513;
+  letter-spacing: -0.01em;
+}
+
+/* Badge colors */
+.wf-app-badge {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+}
+
+.wf-app-badge.blue {
+  background: rgba(58, 87, 161, 0.1);
+  color: #3a57a1;
+}
+
+.wf-app-badge.green {
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+}
+
+.wf-app-badge.amber {
+  background: rgba(245, 158, 11, 0.1);
+  color: #d97706;
+}
+
+.wf-app-badge.purple {
+  background: rgba(139, 92, 246, 0.1);
+  color: #7c3aed;
+}
+
+/* Screen title block */
+.wf-screen-title-block {
+  padding: 14px 16px 8px;
+}
+
+.wf-screen-title {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: #111513;
+  margin-bottom: 2px;
+  animation: wf-slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.wf-screen-sub {
+  font-size: 10.5px;
+  color: #8a857c;
+}
+
+/* Phone body (dynamic area) */
+.wf-phone-body {
+  flex: 1;
+  padding: 8px 16px 12px;
+  display: flex;
+  flex-direction: column;
+  animation: wf-slide-up 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Phone footer */
+.wf-phone-footer {
+  padding: 10px 16px 14px;
+  border-top: 1px solid #f1ece2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wf-footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.wf-footer-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #111513;
+}
+
+.wf-footer-sub {
+  font-size: 9.5px;
+  color: #8a857c;
+}
+
+.wf-footer-dot-row {
+  display: flex;
+  gap: 4px;
+}
+
+.wf-footer-step-dot-row {
+  display: flex;
+  gap: 4px;
+}
+
+.wf-footer-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #e4ded3;
+  transition: background var(--transition-fast), width var(--transition-fast);
+}
+
+.wf-footer-dot.active {
+  background: var(--brand-primary);
+  width: 16px;
+  border-radius: var(--radius-full);
+}
+
+/* ── STEP 1: Scan area ─────────────────────────────────────── */
+
+.wf-phone-scan-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding-top: 8px;
+}
+
+.wf-scan-frame {
+  width: 160px;
+  height: 100px;
+  position: relative;
+  background: #f5f1ea;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wf-scan-corner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: var(--brand-primary);
+  border-style: solid;
+}
+
+.wf-scan-corner.tl {
+  top: 6px;
+  left: 6px;
+  border-width: 2px 0 0 2px;
+}
+
+.wf-scan-corner.tr {
+  top: 6px;
+  right: 6px;
+  border-width: 2px 2px 0 0;
+}
+
+.wf-scan-corner.bl {
+  bottom: 6px;
+  left: 6px;
+  border-width: 0 0 2px 2px;
+}
+
+.wf-scan-corner.br {
+  bottom: 6px;
+  right: 6px;
+  border-width: 0 2px 2px 0;
+}
+
+.wf-scan-beam {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--brand-primary), transparent);
+  animation: wf-beam-scan 1.8s ease-in-out infinite;
+}
+
+@keyframes wf-beam-scan {
+  0% {
+    top: 10%;
+    opacity: 0.6;
+  }
+
+  50% {
+    top: 85%;
+    opacity: 1;
+  }
+
+  100% {
+    top: 10%;
+    opacity: 0.6;
+  }
+}
+
+.wf-scan-id-mock {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  width: 110px;
+}
+
+.wf-id-chip {
+  width: 22px;
+  height: 16px;
+  background: #e4ded3;
+  border-radius: 3px;
+}
+
+.wf-id-line {
+  height: 5px;
+  background: #ddd9d1;
+  border-radius: 3px;
+}
+
+.wf-id-line.long {
+  width: 90px;
+}
+
+.wf-id-line.med {
+  width: 70px;
+}
+
+.wf-id-line.short {
+  width: 50px;
+}
+
+.wf-phone-hint {
+  font-size: 10.5px;
+  color: #8a857c;
+  text-align: center;
+}
+
+/* ── STEP 2: Profile ───────────────────────────────────────── */
+
+.wf-phone-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wf-profile-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--brand-primary);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wf-profile-name {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: #111513;
+}
+
+.wf-profile-meta {
+  font-size: 10.5px;
+  color: #8a857c;
+  line-height: 1.4;
+}
+
+.wf-watchlist-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(16, 185, 129, 0.08);
+  padding: 5px 10px;
+  border-radius: var(--radius-full);
+  width: fit-content;
+}
+
+.wf-watchlist-clear {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #059669;
+}
+
+.wf-profile-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #fbf9f5;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.wf-field-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10.5px;
+}
+
+.wf-field-label {
+  color: #8a857c;
+  font-weight: 500;
+}
+
+.wf-field-val {
+  color: #111513;
+  font-weight: 600;
+}
+
+/* ── STEP 3: Approval ──────────────────────────────────────── */
+
+.wf-phone-approval {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.wf-approval-notif {
+  display: flex;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid #e4ded3;
+  border-radius: 14px;
+  padding: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.wf-notif-icon-wrap {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(58, 87, 161, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.wf-notif-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.wf-notif-title {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #111513;
+}
+
+.wf-notif-desc {
+  font-size: 10px;
+  color: #6d6961;
+  line-height: 1.4;
+}
+
+.wf-notif-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.wf-notif-btn {
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 9.5px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+}
+
+.wf-notif-btn.approve {
+  background: var(--brand-primary);
+  color: #fff;
+}
+
+.wf-notif-btn.deny {
+  background: #f1ece2;
+  color: #6d6961;
+}
+
+.wf-guard-check-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wf-guard-check-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.wf-guard-check-item.done {
+  background: rgba(16, 185, 129, 0.08);
+  color: #059669;
+}
+
+.wf-guard-check-item.pending {
+  background: rgba(245, 158, 11, 0.08);
+  color: #d97706;
+}
+
+/* ── STEP 4: QR Pass ───────────────────────────────────────── */
+
+.wf-phone-pass {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 4px;
+}
+
+.wf-pass-card {
+  width: 100%;
+  background: linear-gradient(135deg, #3a57a1, #2e4682);
+  border-radius: 18px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 10px 30px rgba(58, 87, 161, 0.4);
+}
+
+.wf-pass-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wf-pass-org {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.wf-pass-badge {
+  font-size: 9px;
+  font-weight: 700;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.15);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+.wf-pass-qr {
+  display: flex;
+  justify-content: center;
+  padding: 6px 0;
+}
+
+.wf-qr-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 3px;
+  width: 80px;
+  height: 80px;
+}
+
+.wf-qr-cell {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 2px;
+  transition: opacity 0.3s;
+}
+
+.wf-pass-visitor {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+}
+
+.wf-pass-meta {
+  font-size: 9.5px;
+  color: rgba(255, 255, 255, 0.65);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* ============================================================
+   RIGHT COLUMN: Vertical Timeline
+   ============================================================ */
+
+.workflow-right {
+  display: flex;
+  flex-direction: column;
+  padding-top: 12px;
+  position: sticky;
+  top: 100px;
+}
+
+.wf-timeline-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #8a857c;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.wf-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+.wf-timeline-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 12px 10px 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-align: left;
+  position: relative;
+  border-radius: 4px;
+  transition: background var(--transition-fast);
+  width: 100%;
+}
+
+.wf-timeline-step:hover {
+  background: rgba(58, 87, 161, 0.05);
+  padding-left: 8px;
+  margin-left: -8px;
+  padding-right: 4px;
+  width: calc(100% + 8px);
+}
+
+.wf-timeline-step.active {
+  background: rgba(58, 87, 161, 0.07);
+  padding-left: 8px;
+  margin-left: -8px;
+  width: calc(100% + 8px);
+}
+
+/* Connector line */
+.wf-timeline-connector {
+  position: absolute;
+  top: -14px;
+  left: 19px;
+  width: 2px;
+  height: 14px;
+  background: #e4ded3;
+  transition: background var(--transition-normal);
+}
+
+.wf-timeline-connector.filled {
+  background: var(--brand-primary);
+}
+
+/* Step dot */
+.wf-timeline-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #e4ded3;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition:
+    border-color var(--transition-fast),
+    background var(--transition-fast),
+    box-shadow var(--transition-fast);
+  margin-top: 2px;
+  color: #10b981;
+}
+
+.wf-timeline-step.active .wf-timeline-dot {
+  border-color: var(--brand-primary);
+  background: var(--brand-primary);
+  box-shadow: 0 0 0 4px rgba(58, 87, 161, 0.15);
+  color: #fff;
+}
+
+.wf-timeline-step.done .wf-timeline-dot {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+}
+
+/* Step text */
+.wf-timeline-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.wf-timeline-time {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #8a857c;
+  text-transform: uppercase;
+}
+
+.wf-timeline-name {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: #111513;
+  transition: color var(--transition-fast);
+}
+
+.wf-timeline-step.active .wf-timeline-name {
+  color: var(--brand-primary);
+}
+
+.wf-timeline-arrow {
+  color: var(--brand-primary);
+  margin-top: 4px;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+/* Auto-play toggle */
+.wf-autoplay-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid #e4ded3;
+  background: #ffffff;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #6d6961;
+  cursor: pointer;
+  transition:
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    background var(--transition-fast);
+  width: fit-content;
+}
+
+.wf-autoplay-btn.on {
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+  background: rgba(58, 87, 161, 0.05);
+}
+
+.wf-autoplay-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #c4bcb0;
+  transition: background var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.wf-autoplay-dot.on {
+  background: var(--brand-primary);
+  box-shadow: 0 0 0 3px rgba(58, 87, 161, 0.2);
+  animation: wf-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes wf-pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 3px rgba(58, 87, 161, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 0 6px rgba(58, 87, 161, 0.08);
+  }
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1100px) {
+  .workflow-grid {
+    grid-template-columns: 1fr 260px 220px;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 900px) {
+  .workflow-section {
+    padding-top: 56px;
+    padding-bottom: 72px;
+  }
+
+  .workflow-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .workflow-center,
+  .workflow-right {
+    position: static;
+  }
+
+  .workflow-h2 {
+    margin-bottom: 28px;
+  }
+
+  .workflow-phone-shell {
+    max-width: 270px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .wf-timeline {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .wf-timeline-step,
+  .wf-timeline-step:hover,
+  .wf-timeline-step.active {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    padding: 12px 14px;
+    margin-left: 0;
+    width: 100%;
+    background: #ffffff;
+    border: 1.5px solid #e4ded3;
+    border-radius: 4px;
+  }
+
+  .wf-timeline-step.active {
+    border-color: var(--brand-primary);
+    background: rgba(58, 87, 161, 0.06);
+  }
+
+  .wf-timeline-connector {
+    display: none;
+  }
+
+  .wf-timeline-arrow {
+    display: none;
+  }
+
+  .wf-autoplay-btn {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .workflow-section {
+    padding-top: 48px;
+    padding-bottom: 56px;
+  }
+
+  .workflow-h2 {
+    font-size: clamp(28px, 7.5vw, 36px);
+    margin-bottom: 24px;
+  }
+
+  .workflow-step-num {
+    font-size: 34px;
+  }
+
+  .wf-timeline {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .wf-timeline-step,
+  .wf-timeline-step:hover,
+  .wf-timeline-step.active {
+    padding: 10px 10px;
+    gap: 10px;
+  }
+
+  .wf-timeline-dot {
+    width: 18px;
+    height: 18px;
+  }
+
+  .wf-timeline-time {
+    font-size: 8.5px;
+  }
+
+  .wf-timeline-name {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .wf-timeline {
+    grid-template-columns: 1fr;
+  }
+}

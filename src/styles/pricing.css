@@ -1,0 +1,524 @@
+/* ============================================================
+   Fold 7: Pricing Section (Modern Premium GateShield Theme)
+   ============================================================ */
+
+.pricing-section {
+  padding-top: 80px;
+  padding-bottom: 110px;
+  background-color: #f5f1ea;
+  border-top: 1px solid #e4ded3;
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Section Header ─────────────────────────────────────────── */
+
+.pricing-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 64px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pricing-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 3.8vw, 46px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #111513;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.pricing-subheadline {
+  font-size: clamp(15px, 1.4vw, 17px);
+  line-height: 1.6;
+  color: #6d6961;
+}
+
+/* ── 3-Card Modern SaaS Grid ────────────────────────────────── */
+
+.pricing-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: stretch;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* Base Card */
+.pricing-card {
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.25s ease;
+}
+
+.pricing-card-inner {
+  padding: 32px 30px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+  z-index: 2;
+}
+
+/* Light Cards: Starter & Enterprise */
+.card-starter,
+.card-enterprise {
+  background: #ffffff;
+  border: 1.5px solid #e4ded3;
+  box-shadow:
+    0 4px 20px rgba(17, 21, 19, 0.03),
+    0 1px 3px rgba(17, 21, 19, 0.02);
+}
+
+.card-starter:hover,
+.card-enterprise:hover {
+  transform: translateY(-6px);
+  border-color: rgba(58, 87, 161, 0.35);
+  box-shadow:
+    0 20px 44px rgba(17, 21, 19, 0.08),
+    0 0 0 1px rgba(58, 87, 161, 0.08);
+}
+
+/* ── Tier Meta Pill ─────────────────────────────────────────── */
+
+.card-top-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.card-tier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+  background: rgba(58, 87, 161, 0.08);
+  border: 1px solid rgba(58, 87, 161, 0.14);
+}
+
+.card-tier-badge.enterprise-pill {
+  color: #141f36;
+  background: #f5f1ea;
+  border-color: #e4ded3;
+}
+
+.card-tier-badge.recommended-pill {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(8px);
+}
+
+/* ── Card Title & Subtitle ──────────────────────────────────── */
+
+.card-head-block {
+  margin-bottom: 24px;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: #111513;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+.card-subtitle {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #6d6961;
+  min-height: 40px;
+}
+
+/* ── Price & Billing Block ──────────────────────────────────── */
+
+.card-price-block {
+  margin-bottom: 24px;
+}
+
+.card-price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 5px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.price-currency {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  color: #6d6961;
+  align-self: flex-start;
+  margin-top: 6px;
+}
+
+.price-amount {
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  color: #111513;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.price-period {
+  font-size: 13px;
+  color: #6d6961;
+  font-weight: 500;
+}
+
+/* Enterprise Connect Heading */
+.card-price-row.connect-row {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.connect-heading {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 800;
+  color: #111513;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+/* Billing Info & Savings Pill */
+.card-billing-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.billing-annual {
+  font-size: 12.5px;
+  color: #6d6961;
+  font-weight: 500;
+}
+
+.billing-savings-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 700;
+  color: #059669;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.22);
+}
+
+.billing-savings-pill.recommended-savings {
+  color: #6ee7b7;
+  background: rgba(16, 185, 129, 0.16);
+  border: 1px solid rgba(110, 231, 183, 0.3);
+}
+
+.billing-savings-pill.neutral-pill {
+  color: #55524c;
+  background: #f5f1ea;
+  border: 1px solid #e4ded3;
+  font-weight: 600;
+}
+
+/* ── Divider ────────────────────────────────────────────────── */
+
+.card-divider {
+  height: 1px;
+  width: 100%;
+  background: #ece6db;
+  margin-bottom: 22px;
+}
+
+.card-divider.divider-light {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* ── Features Section ───────────────────────────────────────── */
+
+.card-features-wrap {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-bottom: 30px;
+}
+
+.card-features-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #8a857c;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.card-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 14px;
+  color: #1e293b;
+  font-weight: 500;
+}
+
+.feature-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.feature-check.green {
+  color: #059669;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.28);
+}
+
+.feature-check.white {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+/* ── Action Button Wrap ─────────────────────────────────────── */
+
+.card-action-wrap {
+  margin-top: auto;
+}
+
+.pricing-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 13px 22px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.pricing-action-btn .btn-arrow {
+  transition: transform 0.2s ease;
+}
+
+.pricing-action-btn:hover .btn-arrow {
+  transform: translateX(3px);
+}
+
+.pricing-action-btn.outline-btn {
+  background: #f5f1ea;
+  border: 1.5px solid #e4ded3;
+  color: #111513;
+}
+
+.pricing-action-btn.outline-btn:hover {
+  background: var(--brand-primary);
+  border-color: var(--brand-primary);
+  color: #ffffff;
+  box-shadow: 0 8px 22px rgba(58, 87, 161, 0.28);
+  transform: translateY(-1px);
+}
+
+/* ── Card 2: Recommended Highlight (GateShield Signature Blue) ─ */
+
+.card-premium-recommended {
+  background: linear-gradient(155deg, #3a57a1 0%, #263f80 58%, #141f36 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  border-radius: 4px;
+  box-shadow:
+    0 24px 56px rgba(20, 31, 54, 0.28),
+    0 8px 24px rgba(58, 87, 161, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  transform: translateY(-8px);
+  z-index: 2;
+}
+
+.pricing-card-glow {
+  position: absolute;
+  top: -70px;
+  right: -70px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.24) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card-premium-recommended:hover {
+  transform: translateY(-14px);
+  box-shadow:
+    0 32px 68px rgba(20, 31, 54, 0.34),
+    0 12px 32px rgba(58, 87, 161, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+/* White text variations on featured card */
+.text-white {
+  color: #ffffff !important;
+}
+
+.text-white-dim {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+.pricing-action-btn.solid-white-btn {
+  background: #ffffff;
+  border: 1.5px solid #ffffff;
+  color: #141f36;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+}
+
+.pricing-action-btn.solid-white-btn:hover {
+  background: #f8fafc;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Bottom Assurance Strip ─────────────────────────────────── */
+
+.pricing-assurance-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 40px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6d6961;
+  text-align: center;
+}
+
+.pricing-assurance-strip svg {
+  color: var(--brand-primary);
+  flex-shrink: 0;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+
+@media (max-width: 1080px) {
+  .pricing-cards-grid {
+    gap: 18px;
+  }
+
+  .pricing-card-inner {
+    padding: 28px 22px 24px 22px;
+  }
+
+  .price-amount {
+    font-size: 38px;
+  }
+
+  .connect-heading {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 900px) {
+  .pricing-cards-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    gap: 24px;
+  }
+
+  .card-premium-recommended {
+    transform: none;
+  }
+
+  .card-premium-recommended:hover {
+    transform: translateY(-4px);
+  }
+
+  .card-subtitle {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .pricing-section {
+    padding-top: 52px;
+    padding-bottom: 64px;
+  }
+
+  .pricing-header {
+    margin-bottom: 36px;
+  }
+
+  .pricing-cards-grid {
+    max-width: 100%;
+    gap: 20px;
+  }
+
+  .pricing-card,
+  .card-premium-recommended {
+    border-radius: 4px;
+  }
+
+  .pricing-card-inner {
+    padding: 24px 20px;
+  }
+
+  .price-amount {
+    font-size: 36px;
+  }
+
+  .connect-heading {
+    font-size: 32px;
+  }
+
+  .pricing-assurance-strip {
+    margin-top: 28px;
+    font-size: 12px;
+  }
+}

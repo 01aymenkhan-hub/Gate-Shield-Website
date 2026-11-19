@@ -1,0 +1,316 @@
+/* ============================================================
+   Contact Modal / Popup Form Styles
+   ============================================================ */
+
+.contact-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 11, 18, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: modalBackdropFadeIn 0.25s ease-out;
+  overflow-y: auto;
+}
+
+@keyframes modalBackdropFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.contact-modal-card {
+  background: #ffffff;
+  border: 1.5px solid #e4ded3;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 580px;
+  padding: 36px 36px 32px 36px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.4);
+  position: relative;
+  animation: modalCardPop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  max-height: 92vh;
+  overflow-y: auto;
+}
+
+@keyframes modalCardPop {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Close Button */
+.modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 34px;
+  height: 34px;
+  border-radius: 4px;
+  background: #f5f1ea;
+  border: 1px solid #e4ded3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6d6961;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  z-index: 2;
+}
+
+.modal-close-btn:hover {
+  background: #111513;
+  color: #ffffff;
+  border-color: #111513;
+  transform: rotate(90deg);
+}
+
+/* Header */
+.modal-header {
+  margin-bottom: 24px;
+  padding-right: 24px;
+}
+
+.modal-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+  background: rgba(58, 87, 161, 0.08);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  margin-bottom: 10px;
+}
+
+.modal-tag-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brand-primary);
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: #111513;
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+
+.modal-sub {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #6d6961;
+}
+
+/* Form Layout */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-form-alert {
+  padding: 10px 14px;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: 4px;
+  color: #dc2626;
+  font-size: 12.5px;
+  font-weight: 500;
+}
+
+.modal-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.modal-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.modal-field-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.modal-field-label svg {
+  color: var(--brand-primary);
+}
+
+.modal-input,
+.modal-select,
+.modal-textarea {
+  width: 100%;
+  padding: 10px 14px;
+  background: #fbf9f5;
+  border: 1.5px solid #e4ded3;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 13.5px;
+  color: #111513;
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+}
+
+.modal-input:focus,
+.modal-select:focus,
+.modal-textarea:focus {
+  background: #ffffff;
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px rgba(58, 87, 161, 0.12);
+}
+
+.modal-input.error {
+  border-color: #ef4444;
+  background: #fff5f5;
+}
+
+.modal-field-error {
+  font-size: 11px;
+  color: #ef4444;
+  font-weight: 500;
+}
+
+.modal-textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+/* Submit Button */
+.modal-submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 13px 24px;
+  background: var(--brand-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-size: 14.5px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(58, 87, 161, 0.35);
+  transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  margin-top: 6px;
+}
+
+.modal-submit-btn:hover:not(:disabled) {
+  background: var(--brand-primary-light);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(58, 87, 161, 0.45);
+}
+
+.modal-submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Privacy Note */
+.modal-privacy-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #8a857c;
+  text-align: center;
+  margin-top: 2px;
+}
+
+.modal-privacy-note svg {
+  color: #10b981;
+}
+
+/* Success View */
+.modal-success-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 12px;
+  gap: 16px;
+}
+
+.success-icon-wrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.success-h3 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: #111513;
+}
+
+.success-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #55524c;
+  max-width: 440px;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+  .contact-modal-backdrop {
+    padding: 12px;
+  }
+
+  .contact-modal-card {
+    padding: 24px 18px 20px 18px;
+    border-radius: 4px;
+  }
+
+  .modal-close-btn {
+    top: 14px;
+    right: 14px;
+  }
+
+  .modal-form-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .modal-input,
+  .modal-select,
+  .modal-textarea {
+    font-size: 16px;
+  }
+
+  .modal-title {
+    font-size: 19px;
+  }
+}
+
