@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
+import { useContactModal } from '@/components/common/ContactModal';
 import {
   LayoutDashboard,
   Users,
@@ -185,6 +185,7 @@ const personas: Persona[] = [
 export const FeaturesFold: React.FC = () => {
   const [activeId, setActiveId] = useState<string>('admin');
   const active = personas.find((p) => p.id === activeId) ?? personas[0];
+  const { openModal } = useContactModal();
 
   return (
     <section className="features-section" id="features">
@@ -280,13 +281,14 @@ export const FeaturesFold: React.FC = () => {
                 </span>
                 <span className="features-stat-label">{active.stat.label}</span>
               </div>
-              <Link
-                href="#contact"
+              <button
+                type="button"
+                onClick={openModal}
                 className="features-cta-link"
               >
                 <span>{active.ctaLabel}</span>
                 <ArrowRight size={14} />
-              </Link>
+              </button>
             </div>
           </div>
 

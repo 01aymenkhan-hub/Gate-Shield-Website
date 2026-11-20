@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
+import { useContactModal } from '@/components/common/ContactModal';
 import {
   Users,
   Calendar,
@@ -47,6 +47,7 @@ interface ModuleConfig {
 export const ModulesFold: React.FC = () => {
   const [activeId, setActiveId] = useState('visitor');
   const { fold4Modules } = landingData;
+  const { openModal } = useContactModal();
 
   const modulesList: ModuleConfig[] = [
     {
@@ -525,13 +526,14 @@ export const ModulesFold: React.FC = () => {
                 <p className="module-full-desc">{currentModule.fullDesc}</p>
               </div>
 
-              <Link
-                href="#contact"
+              <button
+                type="button"
+                onClick={openModal}
                 className="module-action-link"
               >
                 <span>Request Module Demo</span>
                 <ArrowRight size={14} />
-              </Link>
+              </button>
             </div>
           </div>
         </div>

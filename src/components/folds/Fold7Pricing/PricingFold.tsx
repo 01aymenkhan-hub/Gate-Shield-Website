@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
+import { useContactModal } from '@/components/common/ContactModal';
 import {
   Check,
   Sparkles,
@@ -10,8 +10,12 @@ import {
   ShieldCheck,
   Zap,
 } from 'lucide-react';
+import { useCurrency } from '@/components/common/CurrencyProvider';
 
 export const PricingFold: React.FC = () => {
+  const { currencyInfo, formatNumberFromPkr, formatInlineFromPkr } = useCurrency();
+  const { openModal } = useContactModal();
+
   return (
     <section className="pricing-section" id="pricing">
       <div className="pricing-container">
@@ -50,15 +54,18 @@ export const PricingFold: React.FC = () => {
 
               <div className="card-price-block">
                 <div className="card-price-row">
-                  <span className="price-currency">PKR</span>
-                  <span className="price-amount">9,950</span>
+                  <span className="price-currency">{currencyInfo.symbol}</span>
+                  <span className="price-amount">{formatNumberFromPkr(9950)}</span>
                   <span className="price-period">/month</span>
                 </div>
 
                 <div className="card-billing-info">
-                  <p className="billing-annual">PKR 7,000 /month, billed annually at PKR 84,000</p>
+                  <p className="billing-annual">
+                    {formatInlineFromPkr(7000)} /month, billed annually at{' '}
+                    {formatInlineFromPkr(84000)}
+                  </p>
                   <span className="billing-savings-pill">
-                  Save PKR 36,000 a year (30%)
+                    Save {formatInlineFromPkr(36000)} a year (30%)
                   </span>
                 </div>
               </div>
@@ -102,13 +109,14 @@ export const PricingFold: React.FC = () => {
               </div>
 
               <div className="card-action-wrap">
-                <Link
-                  href="#contact"
+                <button
+                  type="button"
+                  onClick={openModal}
                   className="pricing-action-btn outline-btn"
                 >
                   <span>Sign Up</span>
                   <ArrowRight size={15} className="btn-arrow" />
-                </Link>
+                </button>
               </div>
             </div>
           </div>
@@ -116,16 +124,13 @@ export const PricingFold: React.FC = () => {
           {/* Card 2: Premium (Recommended Highlight) */}
           <div className="pricing-card card-premium-recommended">
             <div className="pricing-card-glow" aria-hidden="true" />
+            <div className="recommended-ribbon" aria-label="Recommended plan">
+              <Sparkles size={11} />
+              <span>Recommended</span>
+            </div>
             <div className="pricing-card-inner highlight-inner">
-              <div className="card-top-meta">
-                <span className="card-tier-badge recommended-pill">
-                  <Sparkles size={12} />
-                  <span>Recommended</span>
-                </span>
-              </div>
-
               <div className="card-head-block">
-                <h3 className="card-title text-white">Premium (Recommended)</h3>
+                <h3 className="card-title text-white">Premium</h3>
                 <p className="card-subtitle text-white-dim">
                 Built for growing teams managing multiple gates.
                 </p>
@@ -133,17 +138,18 @@ export const PricingFold: React.FC = () => {
 
               <div className="card-price-block">
                 <div className="card-price-row text-white">
-                  <span className="price-currency text-white-dim">PKR</span>
-                  <span className="price-amount text-white">14,950</span>
+                  <span className="price-currency text-white-dim">{currencyInfo.symbol}</span>
+                  <span className="price-amount text-white">{formatNumberFromPkr(14950)}</span>
                   <span className="price-period text-white-dim">/month</span>
                 </div>
 
                 <div className="card-billing-info">
                   <p className="billing-annual text-white-dim">
-                  PKR 12,000 /month, billed annually at PKR 144,000
+                    {formatInlineFromPkr(12000)} /month, billed annually at{' '}
+                    {formatInlineFromPkr(144000)}
                   </p>
                   <span className="billing-savings-pill recommended-savings">
-                  Save PKR 36,000 a year (20%)
+                    Save {formatInlineFromPkr(36000)} a year (20%)
                   </span>
                 </div>
               </div>
@@ -201,13 +207,14 @@ export const PricingFold: React.FC = () => {
               </div>
 
               <div className="card-action-wrap">
-                <Link
-                  href="#contact"
+                <button
+                  type="button"
+                  onClick={openModal}
                   className="pricing-action-btn solid-white-btn"
                 >
                   <span>Sign Up</span>
                   <ArrowRight size={15} className="btn-arrow" />
-                </Link>
+                </button>
               </div>
             </div>
           </div>
@@ -299,13 +306,14 @@ export const PricingFold: React.FC = () => {
               </div>
 
               <div className="card-action-wrap">
-                <Link
-                  href="#contact"
+                <button
+                  type="button"
+                  onClick={openModal}
                   className="pricing-action-btn outline-btn"
                 >
                   <span>Contact Us</span>
                   <ArrowRight size={15} className="btn-arrow" />
-                </Link>
+                </button>
               </div>
             </div>
           </div>

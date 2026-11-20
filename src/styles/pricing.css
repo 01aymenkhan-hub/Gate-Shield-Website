@@ -395,6 +395,34 @@
   z-index: 1;
 }
 
+.recommended-ribbon {
+  position: absolute;
+  top: 24px;
+  right: -38px;
+  width: 162px;
+  padding: 6px 0;
+  transform: rotate(45deg);
+  background: #ffffff;
+  color: #1e3a8a;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  z-index: 4;
+  pointer-events: none;
+}
+
+.card-premium-recommended .card-head-block {
+  padding-top: 44px;
+  padding-right: 48px;
+}
+
 .card-premium-recommended:hover {
   transform: translateY(-14px);
   box-shadow:
@@ -474,6 +502,11 @@
 
   .card-premium-recommended {
     transform: none;
+  }
+
+  .card-premium-recommended .card-head-block {
+    padding-top: 10px;
+    padding-right: 68px;
   }
 
   .card-premium-recommended:hover {

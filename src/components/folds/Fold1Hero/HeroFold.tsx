@@ -7,6 +7,7 @@ import {
   MessageCircle,
 } from 'lucide-react';
 import { landingData } from '@/data/landingData';
+import { useContactModal } from '@/components/common/ContactModal';
 
 interface HeroScene {
   id: string;
@@ -87,6 +88,7 @@ export const HeroFold: React.FC = () => {
   const [activeSceneIndex, setActiveSceneIndex] = useState(1);
   const activeScene = HERO_SCENES[activeSceneIndex];
   const { fold1Hero } = landingData;
+  const { openModal } = useContactModal();
 
   // Auto-advance or allow user interactive selection
   useEffect(() => {
@@ -138,8 +140,9 @@ export const HeroFold: React.FC = () => {
           {/* Dual Store-Style CTA Cards */}
           <div className="hero-cta-group">
             {/* Primary Action: Contact & Book Demo */}
-            <Link
-              href="#pricing"
+            <button
+              type="button"
+              onClick={openModal}
               className="hero-cta-card primary"
             >
               <div className="hero-cta-icon">
@@ -149,7 +152,7 @@ export const HeroFold: React.FC = () => {
                 <span className="hero-cta-sub">Instant Setup</span>
                 <span className="hero-cta-title">Book A Demo</span>
               </div>
-            </Link>
+            </button>
 
             {/* WhatsApp Direct Action */}
             <Link

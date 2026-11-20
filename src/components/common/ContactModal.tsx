@@ -53,18 +53,19 @@ export const ContactModalProvider: React.FC<{ children: React.ReactNode }> = ({
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 
-  // Global click interceptor for any anchor targeting #contact
+  // Global click interceptor in capture phase so #contact links never trigger hash scroll
   useEffect(() => {
     const handleDocumentClick = (e: MouseEvent) => {
       const target = (e.target as HTMLElement).closest('a[href="#contact"], [data-contact-trigger]');
       if (target) {
         e.preventDefault();
+        e.stopPropagation();
         setIsOpen(true);
       }
     };
 
-    document.addEventListener('click', handleDocumentClick);
-    return () => document.removeEventListener('click', handleDocumentClick);
+    document.addEventListener('click', handleDocumentClick, true);
+    return () => document.removeEventListener('click', handleDocumentClick, true);
   }, []);
 
   return (

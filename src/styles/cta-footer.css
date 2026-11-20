@@ -240,6 +240,18 @@
   color: var(--text-secondary);
 }
 
+/* Phone Mockup Image */
+.cta-phone-mockup-img {
+  width: 290px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 24px 60px rgba(0, 0, 0, 0.55))
+    drop-shadow(0 0 36px rgba(58, 87, 161, 0.22));
+}
+
 /* Phone Device Shell */
 .cta-phone-shell {
   width: 290px;
@@ -648,7 +660,8 @@
     height: 280px;
   }
 
-  .cta-phone-shell {
+  .cta-phone-shell,
+  .cta-phone-mockup-img {
     width: 265px;
     max-width: 100%;
   }

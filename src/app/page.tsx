@@ -10,11 +10,13 @@ import { PricingFold } from '@/components/folds/Fold7Pricing/PricingFold';
 import { IndustriesFold } from '@/components/folds/Fold8Industries/IndustriesFold';
 import { CtaFold } from '@/components/folds/Fold9Cta/CtaFold';
 import { ContactModalProvider } from '@/components/common/ContactModal';
+import { CurrencyProvider } from '@/components/common/CurrencyProvider';
 import { ScrollAnimations } from '@/components/common/ScrollAnimations';
 
 export default function HomePage() {
   return (
-    <ContactModalProvider>
+    <CurrencyProvider>
+      <ContactModalProvider>
       <ScrollAnimations />
       <Navbar />
       <main>
@@ -54,6 +56,7 @@ export default function HomePage() {
 
       {/* Global Footer */}
       <Footer />
-    </ContactModalProvider>
+      </ContactModalProvider>
+    </CurrencyProvider>
   );
 }

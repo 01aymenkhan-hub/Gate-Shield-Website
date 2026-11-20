@@ -1,33 +1,23 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Check } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 interface TextSegment {
-  type: 'text';
   text: string;
   colorType: 'contrast' | 'accent' | 'normal';
 }
 
-interface PillSegment {
-  type: 'pill';
-  pillId: string;
-}
-
-type TokenSegment = TextSegment | PillSegment;
-
-const SEGMENTS: TokenSegment[] = [
-  { type: 'text', text: 'Less paperwork, ', colorType: 'contrast' },
-  { type: 'text', text: 'faster check-ins: ', colorType: 'accent' },
-  { type: 'pill', pillId: '09:00' },
-  { type: 'text', text: ' instant visitor records, and a simple system ', colorType: 'normal' },
-  { type: 'pill', pillId: '09:15' },
-  { type: 'text', text: ' your team can start using ', colorType: 'normal' },
-  { type: 'pill', pillId: '09:30' },
-  { type: 'text', text: ' without the hassle.', colorType: 'normal' },
+const SEGMENTS: TextSegment[] = [
+  { text: 'Less paperwork, ', colorType: 'contrast' },
+  { text: 'faster check-ins: ', colorType: 'accent' },
+  {
+    text: 'instant visitor records, and a simple system your team can start using without the hassle.',
+    colorType: 'normal',
+  },
 ];
 
 export const WhyGateShieldFold: React.FC = () => {
@@ -36,19 +26,6 @@ export const WhyGateShieldFold: React.FC = () => {
   const statementRef = useRef<HTMLHeadingElement>(null);
   const actionRowRef = useRef<HTMLDivElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
-
-  const [activePills, setActivePills] = useState<Record<string, boolean>>({
-    '09:00': true,
-    '09:15': true,
-    '09:30': false,
-  });
-
-  const togglePill = (time: string) => {
-    setActivePills((prev) => ({
-      ...prev,
-      [time]: !prev[time],
-    }));
-  };
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -142,30 +119,6 @@ export const WhyGateShieldFold: React.FC = () => {
         {/* Giant Typographic Statement with Character-by-Character Pinned Scrub */}
         <h2 className="why-statement" ref={statementRef}>
           {SEGMENTS.map((seg, sIdx) => {
-            if (seg.type === 'pill') {
-              const pId = seg.pillId;
-              const isActive = !!activePills[pId];
-              return (
-                <span
-                  key={`pill-${pId}-${sIdx}`}
-                  className="why-char why-pill-char"
-                  data-active-color="#111513"
-                >
-                  <button
-                    type="button"
-                    className={`inline-time-pill ${isActive ? 'active' : ''}`}
-                    onClick={() => togglePill(pId)}
-                    title={`Click to toggle ${pId} check-in milestone`}
-                  >
-                    <span className="pill-radio-icon">
-                      {isActive && <Check size={12} strokeWidth={3} />}
-                    </span>
-                    <span className="pill-time-text">{pId}</span>
-                  </button>
-                </span>
-              );
-            }
-
             // Word-wrapped text segments to prevent awkward mid-word breaks
             const words = seg.text.split(' ');
             const activeColor = seg.colorType === 'accent' ? '#3a57a1' : '#111513';

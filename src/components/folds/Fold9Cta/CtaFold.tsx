@@ -5,17 +5,16 @@ import Link from 'next/link';
 import {
   ArrowRight,
   MessageCircle,
-  ShieldCheck,
   CheckCircle2,
-  Clock,
-  Sparkles,
   QrCode,
   Wifi,
 } from 'lucide-react';
 import { landingData } from '@/data/landingData';
+import { useContactModal } from '@/components/common/ContactModal';
 
 export const CtaFold: React.FC = () => {
   const { fold9Cta, navigation } = landingData;
+  const { openModal } = useContactModal();
 
   return (
     <section className="cta-section" id="contact">
@@ -42,10 +41,14 @@ export const CtaFold: React.FC = () => {
 
             {/* Action Buttons */}
             <div className="cta-actions-row">
-              <Link href="#pricing" className="cta-primary-btn">
+              <button
+                type="button"
+                onClick={openModal}
+                className="cta-primary-btn"
+              >
                 <span>Book a Demo</span>
                 <ArrowRight size={16} />
-              </Link>
+              </button>
 
               <Link
                 href={navigation.ctaWhatsApp.href}
@@ -79,16 +82,16 @@ export const CtaFold: React.FC = () => {
             <div className="cta-floating-chip left-chip">
               <span className="chip-dot-green" />
               <div className="chip-text-wrap">
-                <span className="chip-title">NDA Signed Auto</span>
-                <span className="chip-sub">09:00 · David Vance</span>
+                <span className="chip-title">ID Scanned</span>
+                <span className="chip-sub">Details filled in automatically</span>
               </div>
             </div>
 
             <div className="cta-floating-chip right-chip">
               <span className="chip-dot-blue" />
               <div className="chip-text-wrap">
-                <span className="chip-title">Host Confirmed</span>
-                <span className="chip-sub">Room B · Meeting Ready</span>
+                <span className="chip-title">Badge Printed</span>
+                <span className="chip-sub">QR code ready for checkout</span>
               </div>
             </div>
 
@@ -109,30 +112,30 @@ export const CtaFold: React.FC = () => {
               <div className="cta-screen-inner">
                 <div className="cta-pass-time-display">
                   <span className="pass-big-time">09:00</span>
-                  <span className="pass-active-badge">● Active Entry Pass</span>
+                  <span className="pass-active-badge">● Active Visitor Pass</span>
                 </div>
 
                 {/* Visitor Card */}
                 <div className="cta-visitor-card">
                   <div className="visitor-card-header">
-                    <div className="visitor-avatar">DV</div>
+                    <div className="visitor-avatar">AH</div>
                     <div>
-                      <div className="visitor-name">David Vance</div>
-                      <div className="visitor-role">Enterprise Partner · Acme Corp</div>
+                      <div className="visitor-name">Ahmed Hassan</div>
+                      <div className="visitor-role">Visitor · Administration</div>
                     </div>
                   </div>
 
                   <div className="visitor-qr-box">
                     <QrCode size={48} className="qr-svg-icon" />
                     <div className="qr-meta-text">
-                      <span className="qr-valid-text">Gate 02 · Turnstile Active</span>
-                      <span className="qr-sub-text">Scanned in 2.4 seconds</span>
+                      <span className="qr-valid-text">Main Gate · Card #VC473</span>
+                      <span className="qr-sub-text">Host: Asif · Entry Logged</span>
                     </div>
                   </div>
 
                   <div className="visitor-status-strip">
                     <CheckCircle2 size={14} color="#10b981" />
-                    <span>Watchlist Cleared · Host Pre-Authorized</span>
+                    <span>CNIC Verified · Watchlist Cleared</span>
                   </div>
                 </div>
 
