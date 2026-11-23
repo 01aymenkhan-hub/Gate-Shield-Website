@@ -11,6 +11,7 @@ import { IndustriesFold } from '@/components/folds/Fold8Industries/IndustriesFol
 import { CtaFold } from '@/components/folds/Fold9Cta/CtaFold';
 import { ContactModalProvider } from '@/components/common/ContactModal';
 import { CurrencyProvider } from '@/components/common/CurrencyProvider';
+import { FloatingContactButtons } from '@/components/common/FloatingContactButtons';
 import { ScrollAnimations } from '@/components/common/ScrollAnimations';
 
 export default function HomePage() {
@@ -56,6 +57,7 @@ export default function HomePage() {
 
       {/* Global Footer */}
       <Footer />
+      <FloatingContactButtons />
       </ContactModalProvider>
     </CurrencyProvider>
   );

@@ -21,7 +21,7 @@ export const landingData: LandingPageData = {
     },
     ctaWhatsApp: {
       label: 'Chat on WhatsApp',
-      href: 'https://wa.me/?text=Hello%20GateShield%20Team',
+      href: 'https://wa.me/923225171016?text=Hello%20GateShield%20Team',
     },
   },
   fold1Hero: {
@@ -35,7 +35,7 @@ export const landingData: LandingPageData = {
     },
     whatsappCta: {
       label: 'Chat on WhatsApp',
-      href: 'https://wa.me/?text=Hello%20GateShield%20Team',
+      href: 'https://wa.me/923225171016?text=Hello%20GateShield%20Team',
     },
   },
   fold2Stats: {
@@ -442,7 +442,7 @@ export const landingData: LandingPageData = {
     },
     whatsappCta: {
       label: 'Chat on WhatsApp',
-      href: 'https://wa.me/?text=Hello%20GateShield%20Team',
+      href: 'https://wa.me/923225171016?text=Hello%20GateShield%20Team',
     },
   },
 };
